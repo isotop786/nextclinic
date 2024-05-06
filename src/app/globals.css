@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities; */
 /********** Template CSS **********/
+@import "~bootstrap/dist/css/bootstrap.min.css";
 :root {
   --primary: #0463FA;
   --light: #EFF5FF;
