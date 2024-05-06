@@ -44,7 +44,7 @@ const ContactPage = () => {
                         </div>
                         <div className="ms-4">
                             <p className="mb-2">Mail Us Now</p>
-                            <h5 className="mb-0">info@example.com</h5>
+                            <h5 className="mb-0">nextclinic@gmail.com</h5>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@ const ContactPage = () => {
                     <div className="bg-light rounded p-5">
                         <p className="d-inline-block border rounded-pill py-1 px-4">Contact Us</p>
                         <h1 className="mb-4">Have Any Query? Please Contact Us!</h1>
-                        <p className="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you are done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                        
                         <form>
                             <div className="row g-3">
                                 <div className="col-md-6">
