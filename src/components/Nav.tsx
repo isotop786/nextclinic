@@ -1,5 +1,8 @@
 import React from 'react'
-import { FaHospitalAlt, FaArrowRight,FaArrowAltCircleDown } from 'react-icons/fa'
+import { FaHospitalAlt, FaArrowRight,FaArrowAltCircleDown,FaLock } from 'react-icons/fa'
+import { FaUserPlus } from "react-icons/fa";
+import { FaSignInAlt } from "react-icons/fa";
+
 import Link from 'next/link'
 
 const Nav = () => {
@@ -19,9 +22,10 @@ const Nav = () => {
                 <Link href="/service" className="nav-item nav-link">Service</Link>
                 <Link href="/contact" className="nav-item nav-link">Contact</Link>
                 <div className="nav-item dropdown">
-                    <Link href="#" className="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown"><span>Admin</span><FaArrowAltCircleDown/></Link>
+                    <Link href="#" className="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown"><span className='me-1'>User</span><FaLock/></Link>
                     <div className="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <Link href="/admin/Login" className="dropdown-item">Login</Link>
+                        <Link href="/login" className="dropdown-item"><span className='me-2'>Login</span><FaSignInAlt/></Link>
+                        <Link href="/register" className="dropdown-item"><span className='me-2'>Register an Account</span><FaUserPlus/></Link>
                     </div>
                 </div>
                 

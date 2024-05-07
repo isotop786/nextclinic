@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import Script from "next/script";
 import NextTopLoader from 'nextjs-toploader';
 import { useEffect } from 'react'
+import SEO from "@/components/Seo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,9 +37,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
-        <title>NextClinic</title>
-      </Head>
+      <SEO pageTitle="NextClinic" pageDescription="Websites of a great clinic"/>
       <body>
         <TopHeader/>
         <Nav />
