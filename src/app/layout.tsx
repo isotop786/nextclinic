@@ -13,6 +13,8 @@ import Script from "next/script";
 import NextTopLoader from 'nextjs-toploader';
 import { useEffect } from 'react'
 import SEO from "@/components/Seo";
+import { usePathname } from 'next/navigation'
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,10 +35,36 @@ export default function RootLayout({
      if (typeof window !== "undefined") {
       require("bootstrap/dist/js/bootstrap");
     }
-  },[])
+  }, [])
+  
+const pathName = usePathname();
 
-  return (
+  if (pathName == "/admin" || pathName=="/admin/register" || pathName =="/admin/doctors") {
+    return (
     <html lang="en">
+      <SEO pageTitle="NextClinic" pageDescription="Websites of a great clinic"/>
+      <body>
+      
+        <NextTopLoader
+        color="#ddd"
+        initialPosition={0.08}
+        crawlSpeed={200}
+        height={3}
+        crawl={true}
+        showSpinner={true}
+        easing="ease"
+        speed={200}
+        shadow="0 0 10px #2299DD,0 0 5px #2299DD"
+        />
+        {children}
+      
+      </body>
+       </html>
+  );
+  } else {
+     return (
+    
+       <html lang="en">
       <SEO pageTitle="NextClinic" pageDescription="Websites of a great clinic"/>
       <body>
         <TopHeader/>
@@ -58,4 +86,7 @@ export default function RootLayout({
       </body>
     </html>
   );
+  }
+
+  
 }

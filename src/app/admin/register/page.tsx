@@ -20,7 +20,7 @@ const RegisterPage = () => {
     const onSignup = async () => {
         try {
             const res = await axios.post("/api/register", user);
-            router.push("/login")
+            router.push("/admin")
 
         } catch (error: any) {
             console.log("Signup failed",error.message)
@@ -29,13 +29,12 @@ const RegisterPage = () => {
 
     return (
       <>
-     <PageBreadCrumb sub='Registration'/>
     <div className="container">
           <div className="row d-flex justify-content-center">
               <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div className="bg-light rounded p-5">
                         
-                        <h1 className="mb-4">Register an account</h1>
+                        <h3 className="mb-4">Add an Admin</h3>
                         
                             <div className="row g-3">
                                
