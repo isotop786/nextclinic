@@ -12,7 +12,7 @@ import { HiOutlineUserAdd } from "react-icons/hi";
 
 function Sidebar() {
   return (
-        <div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+        <div style={{height:"100vh"}} className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
       <div className="offcanvas-md offcanvas-end bg-body-tertiary"  id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
@@ -35,8 +35,8 @@ function Sidebar() {
             </li>
             <li className="nav-item">
               <a className="nav-link d-flex align-items-center gap-2" href="#">
-                <GiNurseFemale />
-                Nurses
+               <MdSchedule />
+                Appointments
               </a>
             </li>
             <li className="nav-item">
@@ -47,10 +47,12 @@ function Sidebar() {
             </li>
             <li className="nav-item">
               <a className="nav-link d-flex align-items-center gap-2" href="#">
-               <MdSchedule />
-                Appointments
+                <GiNurseFemale />
+                Nurses
               </a>
             </li>
+            
+            
             <li className="nav-item">
               <Link className="nav-link d-flex align-items-center gap-2" href="/admin/register">
                 <HiOutlineUserAdd />
