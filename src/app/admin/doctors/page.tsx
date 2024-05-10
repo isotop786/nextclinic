@@ -3,6 +3,7 @@ import React,{useEffect,useState} from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { getDataFromToken } from '@/helper/getDataFromToken'
 
 const DoctorsPage = () => {
 
@@ -43,12 +44,23 @@ const DoctorsPage = () => {
     fetchData();
     
   }, [doctorData])
+
+    useEffect(() => {
+    axios.get('/api/user')
+      .then(res => {
+        //console.log(res.data)
+        //console.log("isAdmin: "+res.data.data.isAdmin)
+        if (res.data.data.isAdmin !== true) {
+          router.push("/admin")
+        }
+    })
+},[])
   
   function fetchData() {
       axios.get('/api/doctors/')
       .then(res => {
         setLoading(true)
-        console.log(res.data)
+        //console.log(res.data)
         setDoctorData(res.data.doctors)
       })
       .then(() => {

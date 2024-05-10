@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React,{useState, useEffect} from 'react'
 import Link from 'next/link'
 import { MdSpaceDashboard } from "react-icons/md";
 import { FaUserDoctor } from "react-icons/fa6";
@@ -6,11 +7,31 @@ import { GiNurseFemale } from "react-icons/gi";
 import { FaUser } from "react-icons/fa";
 import { MdSchedule } from "react-icons/md";
 import { HiOutlineUserAdd } from "react-icons/hi";
+import axios from 'axios'
+import { useRouter } from 'next/navigation';
+
 
 
 
 
 function Sidebar() {
+const router = useRouter()
+
+  const [isAdmin,setIsAdmin] = useState(false)
+  
+  useEffect(() => {
+    axios.get('/api/user')
+      .then(res => {
+        //console.log(res.data)
+        //console.log("isAdmin: "+res.data.data.isAdmin)
+        // if (res.data.data.isAdmin !== true) {
+        //   router.push("/admin")
+        // }
+        setIsAdmin(res.data.data.isAdmin)
+    })
+},[])
+  
+
   return (
         <div style={{height:"100vh"}} className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
       <div className="offcanvas-md offcanvas-end bg-body-tertiary"  id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
@@ -27,12 +48,16 @@ function Sidebar() {
               <span>Dashboard</span>
               </Link>
             </li>
-            <li className="nav-item">
+            
+            {isAdmin && (
+                <li className="nav-item">
               <Link className="nav-link d-flex align-items-center gap-2" href="/admin/doctors">
                 <FaUserDoctor />
                 Doctors
               </Link>
             </li>
+             )}
+          
             <li className="nav-item">
               <a className="nav-link d-flex align-items-center gap-2" href="#">
                <MdSchedule />

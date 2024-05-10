@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
+import  jwt from "jsonwebtoken";
+import { getDataFromToken } from "./helper/getDataFromToken";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname
 
     // define public path
@@ -9,7 +11,11 @@ export function middleware(request: NextRequest) {
   || path === '/contact' || path === '/service'
     
     // getting token from the cookies
-    const token = request.cookies.get('token')?.value || ''
+  const token = request.cookies.get('token')?.value || ''
+
+ // const isAdmin = getDataFromToken(request)
+  
+  console.log("isAdmin: ");
 
     // Redirect logic based on the path and token presence
 

@@ -1,6 +1,18 @@
-import React from 'react'
+"use client"
+import React,{useEffect, useState} from 'react'
+import { NextRequest } from 'next/server'
+import { getDataFromToken } from '@/helper/getDataFromToken'
+import axios from 'axios'
+import {useRouter} from 'next/navigation'
+
 
 const AdminPage = () => {
+
+const [isAdmin,setIsAdmin] = useState(false)
+  const router = useRouter();
+  
+
+  
   return (
     <div className="container" style={{height:"100vh"}}>
       <div className="row">
